@@ -1,7 +1,7 @@
 # INNODEV 2k21
 <h1>🚀Portfolio Website Builder</h1>
 Team Name: Neob
-Team Members : Kunal Yadav (20205092) <a href="https://github.com/metakunal">Github</a>
+Team Members : Kunal Yadav (20205092) <a href="https://github.com/metakunal" target="_blank">Github Link</a>
 
 <h2>Tech Stack📦</h2>
 <ul>
