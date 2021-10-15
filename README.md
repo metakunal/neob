@@ -3,7 +3,7 @@
 Team Name: Neob
 Team Members : Kunal Yadav (20205092) <a href="https://github.com/metakunal">Github</a>
 
-<h2>Tech Stack</h2>
+<h2>Tech Stack📦</h2>
 <ul>
   <li>HTML</li>
     <li>CSS</li>
