@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Editor View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+    <nav class="sticky">
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fa fa-bars"></i>
+        </label>
+        <label class="logo" id="site-btn" title="Download Code"><i class="fas fa-file-download"></i></label>
+        <ul>
+            <li><button class="navbtn" onclick="formatDoc('justifycenter');"><i title=" Align-center"
+                        class="fa fa-align-center"></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('justifyfull');"><i title="Align-justify"
+                        class="fa fa-align-justify"></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('justifyleft');"><i title="Align-left"
+                        class="fa fa-align-left"></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('justifyright');"><i title="Align-right"
+                        class="fa fa-align-right"></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('bold');"><i title="Bold" class="fa fa-bold"></i></button>
+            </li>
+            <li><button class="navbtn" onclick="formatDoc('italic');"><i title="Italic"
+                        class="fa fa-italic"></i></button>
+            </li>
+            <li><button class="navbtn" onclick="formatDoc('underline');"><i title="Underline"
+                        class="fa fa-underline"></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('strikethrough');"><i title="StrikeThrough"
+                        class="fa fa-strikethrough"></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('insertorderedlist');"><i title="Ordered List"
+                        class="fa fa-list-ol"></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('insertunorderedlist');"><i title="Unordered List"
+                        class="fa fa-list-ul"></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('superscript');"><i class="fas fa-superscript"
+                        title="Superscript"></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('subscript');"><i class="fas fa-subscript"
+                        title="Sub-Script"></i></button></li>
+            <li><button class="navbtn"
+                    onclick="var sLnk=prompt('Write the URL here','http:\/\/');if(sLnk&&sLnk!=''&&sLnk!='http://'){formatDoc('createlink',sLnk)}""><i title="
+                    Hyperlink" class="fas fa-link"></i></button>
+            </li>
+            <li><button class="navbtn" onclick="formatDoc('unlink');"><i class="fa fa-unlink"
+                        title="Unlink"></i></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('removeFormat');"><i class="fas fa-remove-format"
+                        title="Remove Format"></i></i></button></li>
+            <li> <select onchange="formatDoc('fontsize',this[this.selectedIndex].value);this.selectedIndex=0;">
+                    <option class="heading" selected>- size -</option>
+                    <option value="1">Very small</option>
+                    <option value="2">A bit small</option>
+                    <option value="3">Normal</option>
+                    <option value="4">Medium-large</option>
+                    <option value="5">Big</option>
+                    <option value="6">Very big</option>
+                    <option value="7">Maximum</option>
+                </select></li>
+            <li><select onchange="formatDoc('fontname',this[this.selectedIndex].value);this.selectedIndex=0;">
+                    <option class="heading" selected>- font -</option>
+                    <option>Arial</option>
+                    <option>Arial Black</option>
+                    <option>Courier New</option>
+                    <option>Times New Roman</option>
+                </select></li>
+            <li><input title="Text Color" type="color" name="" id="" onchange="formatDoc('forecolor',this.value);"></li>
+            <li><input title="Text Color" type="color" name="" id="" onchange="formatDoc('backcolor',this.value);"></li>
+        </ul>
+    </nav>
+    <div class="outer" style="margin-top: 100px;">
+        <div id="container">
+
+        </div>
+    </div>
+    <!-- <button id="site-btn">Save HTML</button> -->
+    <script src="script.js"></script>
+</body>
+
+</html>
