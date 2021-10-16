@@ -62,18 +62,38 @@
                 </select></li>
             <li><select onchange="formatDoc('fontname',this[this.selectedIndex].value);this.selectedIndex=0;">
                     <option class="heading" selected>- font -</option>
-                    <option>Arial</option>
-                    <option>Arial Black</option>
-                    <option>Courier New</option>
-                    <option>Times New Roman</option>
+                    <option style="font-family: Arial;">Arial</option>
+                    <option style="font-family: Arial Black;">Arial Black</option>
+                    <option style="font-family: Courier New;">Courier New</option>
+                    <option style="font-family: Verdana;">Verdana</option>
+                    <option style="font-family: Helvetica;">Helvetica</option>
+                    <option style="font-family: Tahoma;">Tahoma</option>
+                    <option style="font-family: Trebuchet MS;">Trebuchet MS</option>
+                    <option style="font-family: Georgia;">Georgia</option>
+                    <option style="font-family: Garamond;">Garamond</option>
+                    <option style="font-family: cursive;">cursive</option>
+                    <option style="font-family: Brush Script MT;">Brush Script MT</option>
+                    <option style="font-family: Brush Script Std;">Brush Script Std</option>
+                    <option style="font-family: Lucida Handwriting;">Lucida Handwriting</option>
+                    <option style="font-family: Papyrus;">Papyrus</option>
+                    <option style="font-family: Candara;">Candara</option>
+                    <option style="font-family: Geneva;">Geneva</option>
+                    <option style="font-family: Calibri;">Calibri</option>
+                    <option style="font-family: Cambria;">Cambria</option>
+                    <option style="font-family: Garamond;">Garamond</option>
+                    <option style="font-family: Perpetua;">Perpetua</option>
+                    <option style="font-family: Impact;">Impact</option>
+                    <option style="font-family: fantasy;">fantasy</option>
+                    <option style="font-family: Stencil Std;">Stencil Std</option>
+                    <option style="font-family: 'Times New Roman', Times, serif;">Times New Roman</option>
                 </select></li>
             <li><input title="Text Color" type="color" name="" id="" onchange="formatDoc('forecolor',this.value);"></li>
             <li><input title="Text Color" type="color" name="" id="" onchange="formatDoc('backcolor',this.value);"></li>
         </ul>
     </nav>
     <div class="outer" style="margin-top: 100px;">
-        <div id="container">
-
+        <div id="template">
+            <p contenteditable="true">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, omnis?</p>
         </div>
     </div>
     <!-- <button id="site-btn">Save HTML</button> -->

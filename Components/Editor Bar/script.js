@@ -11,7 +11,7 @@ siteBtn.addEventListener("click", () => {
         editable_elements[i].setAttribute("contenteditable", false);
     //Coding for the coding download link
     const a = document.createElement("a")
-    const blob = new Blob(["<!doctype html><html><head><title>Print<\/title><\/head><body>" + container.innerHTML + "<\/body><\/html>"])
+    const blob = new Blob(["<!doctype html><html><head><title>Print<\/title><\/head><body>" + template.innerHTML + "<\/body><\/html>"])
     const dataUrl = URL.createObjectURL(blob)
     a.href = dataUrl
     a.download = "yourSite.html"
