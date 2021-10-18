@@ -1,0 +1,119 @@
+*{
+    padding: 0;
+    margin: 0;
+    /* text-decoration: none;
+    list-style: none;
+    box-sizing: border-box; */
+  }
+  /* body{
+    font-family: montserrat;
+  } */
+  #editor{
+    background: #39A388;
+    height: 80px;
+    width: 100%;
+  }
+  label.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  #editor ul{
+    float: right;
+    margin-right: 20px;
+  }
+  #editor ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+  }
+  #editor ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+  #editor a.active,#editor a:hover{
+    background: #1b9bff;
+    transition: .5s;
+  }
+  .checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+  }
+  #check{
+    display: none;
+  }
+  @media (max-width: 952px){
+    label.logo{
+      font-size: 30px;
+      padding-left: 50px;
+    }
+    #editor ul li a{
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 858px){
+    .checkbtn{
+      display: block;
+    }
+    #editor ul{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: #2c3e50;
+      top: 80px;
+      left: -100%;
+      text-align: center;
+      transition: all .5s;
+    }
+    #editor ul li{
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+    }
+    #editor ul li a{
+      font-size: 20px;
+    }
+    a:hover,a.active{
+      background: none;
+      color: #0082e6;
+    }
+    #check:checked ~ ul{
+      left: 0;
+    }
+  }
+ 
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+.navbtn{
+    background-color: #FF865E; /* Green */
+  border: none;
+  border-radius: 10%;
+  color: white;
+  padding: 8px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}
+.navbtn:hover{
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/* New CSS */
+.profile-photo{
+  cursor: pointer;
+}

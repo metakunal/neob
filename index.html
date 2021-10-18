@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Editor View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+    <nav class="sticky" id="editor">
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fa fa-bars"></i>
+        </label>
+        <label class="logo" id="site-btn" title="Download Code"><i class="fas fa-file-download"></i></label>
+        <ul>
+            <li><button class="navbtn" onclick="formatDoc('justifycenter');"><i title=" Align-center"
+                        class="fa fa-align-center"></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('justifyfull');"><i title="Align-justify"
+                        class="fa fa-align-justify"></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('justifyleft');"><i title="Align-left"
+                        class="fa fa-align-left"></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('justifyright');"><i title="Align-right"
+                        class="fa fa-align-right"></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('bold');"><i title="Bold" class="fa fa-bold"></i></button>
+            </li>
+            <li><button class="navbtn" onclick="formatDoc('italic');"><i title="Italic"
+                        class="fa fa-italic"></i></button>
+            </li>
+            <li><button class="navbtn" onclick="formatDoc('underline');"><i title="Underline"
+                        class="fa fa-underline"></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('strikethrough');"><i title="StrikeThrough"
+                        class="fa fa-strikethrough"></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('insertorderedlist');"><i title="Ordered List"
+                        class="fa fa-list-ol"></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('insertunorderedlist');"><i title="Unordered List"
+                        class="fa fa-list-ul"></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('superscript');"><i class="fas fa-superscript"
+                        title="Superscript"></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('subscript');"><i class="fas fa-subscript"
+                        title="Sub-Script"></i></button></li>
+            <li><button class="navbtn"
+                    onclick="var sLnk=prompt('Write the URL here','http:\/\/');if(sLnk&&sLnk!=''&&sLnk!='http://'){formatDoc('createlink',sLnk)}""><i title="
+                    Hyperlink" class="fas fa-link"></i></button>
+            </li>
+            <li><button class="navbtn" onclick="formatDoc('unlink');"><i class="fa fa-unlink"
+                        title="Unlink"></i></i></button></li>
+            <li><button class="navbtn" onclick="formatDoc('removeFormat');"><i class="fas fa-remove-format"
+                        title="Remove Format"></i></i></button></li>
+            <li> <select onchange="formatDoc('fontsize',this[this.selectedIndex].value);this.selectedIndex=0;">
+                    <option class="heading" selected>- size -</option>
+                    <option value="1">Very small</option>
+                    <option value="2">A bit small</option>
+                    <option value="3">Normal</option>
+                    <option value="4">Medium-large</option>
+                    <option value="5">Big</option>
+                    <option value="6">Very big</option>
+                    <option value="7">Maximum</option>
+                </select></li>
+            <li><select onchange="formatDoc('fontname',this[this.selectedIndex].value);this.selectedIndex=0;">
+                    <option class="heading" selected>- font -</option>
+                    <option style="font-family: Arial;">Arial</option>
+                    <option style="font-family: Arial Black;">Arial Black</option>
+                    <option style="font-family: Courier New;">Courier New</option>
+                    <option style="font-family: Verdana;">Verdana</option>
+                    <option style="font-family: Helvetica;">Helvetica</option>
+                    <option style="font-family: Tahoma;">Tahoma</option>
+                    <option style="font-family: Trebuchet MS;">Trebuchet MS</option>
+                    <option style="font-family: Georgia;">Georgia</option>
+                    <option style="font-family: Garamond;">Garamond</option>
+                    <option style="font-family: cursive;">cursive</option>
+                    <option style="font-family: Brush Script MT;">Brush Script MT</option>
+                    <option style="font-family: Brush Script Std;">Brush Script Std</option>
+                    <option style="font-family: Lucida Handwriting;">Lucida Handwriting</option>
+                    <option style="font-family: Papyrus;">Papyrus</option>
+                    <option style="font-family: Candara;">Candara</option>
+                    <option style="font-family: Geneva;">Geneva</option>
+                    <option style="font-family: Calibri;">Calibri</option>
+                    <option style="font-family: Cambria;">Cambria</option>
+                    <option style="font-family: Garamond;">Garamond</option>
+                    <option style="font-family: Perpetua;">Perpetua</option>
+                    <option style="font-family: Impact;">Impact</option>
+                    <option style="font-family: fantasy;">fantasy</option>
+                    <option style="font-family: Stencil Std;">Stencil Std</option>
+                    <option style="font-family: 'Times New Roman', Times, serif;">Times New Roman</option>
+                </select></li>
+            <li><input title="Text Color" type="color" name="" id="" onchange="formatDoc('forecolor',this.value);"></li>
+            <li><input title="Background Color" type="color" name="" id="bgcolor"></li>
+        </ul>
+    </nav>
+    <div class="outer" style="margin-top: 100px;">
+        <div id="code">
+            <!-- Templating Starts -->
+            <style>
+                @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap");
+
+                body {
+                    background: linear-gradient(236.85deg, #041832 27.26%, #3468a7 96.03%);
+                    font-family: "Roboto", sans-serif;
+                }
+
+                .container {
+                    background-color: #ecf4ff;
+                    color: #1c1c1c;
+                    margin: 64px;
+                    border-radius: 20px;
+                    box-shadow: 6px 6px 6px #0e1d2f;
+                    padding: 64px;
+                }
+
+                .profile {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .profile-photo {
+                    border-radius: 460px;
+                    max-height: 160px;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                }
+
+                .title {
+                    margin-left: 16px;
+                }
+
+                .title h1 {
+                    font-weight: 700;
+                    font-size: 36px;
+                }
+
+                .title h3 {
+                    font-weight: 400;
+                    font-size: 24px;
+                }
+
+                .project {
+                    display: flex;
+                    flex-direction: column;
+                    background: linear-gradient(230.65deg, #499cfe 27.49%, #9cc8fc 83.19%);
+                    margin-top: 32px;
+                    padding: 32px;
+                    box-shadow: 2px 2px 4px rgba(16, 16, 16, 0.42);
+                    border-radius: 20px;
+                    align-items: center;
+                }
+
+                .project-title {
+                    list-style: none;
+                    font-weight: 700;
+                    font-size: 48px;
+                }
+
+                .project-item {
+                    list-style-type: none;
+                    font-weight: 400;
+                    font-size: 36px;
+                    line-height: 56px;
+                }
+
+                .project-item a {
+                    color: #1c1c1c;
+                    text-decoration: none;
+                }
+            </style>
+            <div class="container">
+                <header class="profile">
+                    <img class="profile-photo" src="https://source.unsplash.com/160x160/?man,woman" />
+                    <div class="title">
+                        <h1 contenteditable="true">Your Name</h1>
+                        <h3 contenteditable="true">Your Profession</h3>
+                    </div>
+                </header>
+
+                <main class="project" id="projects">
+                    <ul class="project-title" contenteditable="true">Projects</ul>
+                    <li class="project-item" contenteditable="true"><a href="#">🔢 Project #1</a>
+                    </li>
+                    <li class="project-item" contenteditable="true"><a href="#">🔮 Project #2</a>
+                    </li>
+                    <li class="project-item" contenteditable="true"><a href="#">🏆 Project #3
+                        </a></li>
+                    <li class="project-item" contenteditable="true"><a href="#">🃏 Project #4</a>
+                    </li>
+                    <li class="project-item" contenteditable="true"><a href="#">🌐 Project #5</a>
+                    </li>
+                </main>
+            </div>
+
+            <!-- Templating Ends -->
+        </div>
+    </div>
+    <!-- <button id="site-btn">Save HTML</button> -->
+    <script src="script.js"></script>
+</body>
+
+</html>
