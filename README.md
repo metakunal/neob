@@ -28,6 +28,7 @@ Team Members : Kunal Yadav (20205092) <a href="https://github.com/metakunal" tar
 <ul>
   <li>Will make a resume📄 builder also.</li>
 <li>Will also make a link aggregator like link tree🌲</li>
+  <li>Implemented a Readme writer🖋 also.</li>
  </ul>
  
  
