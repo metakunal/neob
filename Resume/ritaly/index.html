@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+
+    <div id="editor-head" class="text-gray-600 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <div id="site-btn">
+                    <button class="logo" title="Download Code"><i class="fas fa-file-download"></i></button>
+                    <span class="ml-3 text-xl" style="cursor: pointer;">Download</span>
+                </div>
+            </a>
+            <div id="editor-nav" class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                <input class="mr-5 hover:text-gray-900" type="text" id="fileName" placeholder="File Name" required>
+                <a class="mr-5 hover:text-gray-900">
+                    <button onclick="formatDoc('justifycenter');"><i title=" Align-center"
+                            class="fa fa-align-center"></i></button>
+                </a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('justifyfull');"><i title="Align-justify"
+                            class="fa fa-align-justify"></i></button></a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('justifyleft');"><i title="Align-left"
+                            class="fa fa-align-left"></i></button></a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('justifyright');"><i title="Align-right"
+                            class="fa fa-align-right"></i></button></a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('bold');"><i title="Bold"
+                            class="fa fa-bold"></i></button>
+                </a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('italic');"><i title="Italic"
+                            class="fa fa-italic"></i></button>
+                </a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('underline');"><i title="Underline"
+                            class="fa fa-underline"></i></button></a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('strikethrough');"><i
+                            title="StrikeThrough" class="fa fa-strikethrough"></i></button></a>
+
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('superscript');"><i
+                            class="fas fa-superscript" title="Superscript"></i></button></a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('subscript');"><i
+                            class="fas fa-subscript" title="Sub-Script"></i></button></a>
+                <a class="mr-5 hover:text-gray-900"><button
+                        onclick="var sLnk=prompt('Write the URL here','http:\/\/');if(sLnk&&sLnk!=''&&sLnk!='http://'){formatDoc('createlink',sLnk)}""><i title="
+                        Hyperlink" class="fas fa-link"></i></button>
+                </a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('unlink');"><i class="fa fa-unlink"
+                            title="Unlink"></i></i></button></a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('removeFormat');"><i
+                            class="fas fa-remove-format" title="Remove Format"></i></i></button></a>
+
+                <a class="mr-5 hover:text-gray-900"> <select
+                        onchange="formatDoc('fontsize',this[this.selectedIndex].value);this.selectedIndex=0;">
+                        <option class="heading" selected>- size -</option>
+                        <option value="1">Very small</option>
+                        <option value="2">A bit small</option>
+                        <option value="3">Normal</option>
+                        <option value="4">Medium-large</option>
+                        <option value="5">Big</option>
+                        <option value="6">Very big</option>
+                        <option value="7">Maximum</option>
+                    </select></a>
+                <a class="mr-5 hover:text-gray-900"><select
+                        onchange="formatDoc('fontname',this[this.selectedIndex].value);this.selectedIndex=0;">
+                        <option class="heading" selected>- font -</option>
+                        <option style="font-family: Arial;">Arial</option>
+                        <option style="font-family: Arial Black;">Arial Black</option>
+                        <option style="font-family: Courier New;">Courier New</option>
+                        <option style="font-family: Verdana;">Verdana</option>
+                        <option style="font-family: Helvetica;">Helvetica</option>
+                        <option style="font-family: Tahoma;">Tahoma</option>
+                        <option style="font-family: Trebuchet MS;">Trebuchet MS</option>
+                        <option style="font-family: Georgia;">Georgia</option>
+                        <option style="font-family: Garamond;">Garamond</option>
+                        <option style="font-family: cursive;">cursive</option>
+                        <option style="font-family: Brush Script MT;">Brush Script MT</option>
+                        <option style="font-family: Brush Script Std;">Brush Script Std</option>
+                        <option style="font-family: Lucida Handwriting;">Lucida Handwriting</option>
+                        <option style="font-family: Papyrus;">Papyrus</option>
+                        <option style="font-family: Candara;">Candara</option>
+                        <option style="font-family: Geneva;">Geneva</option>
+                        <option style="font-family: Calibri;">Calibri</option>
+                        <option style="font-family: Cambria;">Cambria</option>
+                        <option style="font-family: Garamond;">Garamond</option>
+                        <option style="font-family: Perpetua;">Perpetua</option>
+                        <option style="font-family: Impact;">Impact</option>
+                        <option style="font-family: fantasy;">fantasy</option>
+                        <option style="font-family: Stencil Std;">Stencil Std</option>
+                        <option style="font-family: 'Times New Roman', Times, serif;">Times New Roman</option>
+                    </select></a>
+                <a class="mr-5 hover:text-gray-900"><input title="Text Color" type="color" name="" id=""
+                        onchange="formatDoc('forecolor',this.value);">
+                </a>
+                <!-- <a class="mr-5 hover:text-gray-900"><input title="Background Color" type="color" name=""
+                        id="bgcolor"></a> -->
+
+            </div>
+
+        </div>
+    </div>
+    <div id="code">
+        <!-- Templating Starts -->
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Raleway');
+
+            body {
+                margin: 0;
+                font-family: 'Raleway';
+                font-size: 16px;
+                line-height: 1.8em;
+            }
+
+            a {
+                color: #1C9C94;
+                text-decoration: none;
+            }
+
+            a:hover {
+                opacity: 0.5;
+            }
+
+            article {
+                padding: 0 1em;
+            }
+
+            section {
+                margin: 1em;
+                padding: 1em;
+            }
+
+            header,
+            main,
+            footer {
+                margin: 0 auto;
+            }
+
+            header {
+                padding: 2em;
+                text-align: center;
+                background-image: url('https://raw.githubusercontent.com/ritaly/HTML-CSS-CV-demo/master/img/bg.jpg');
+                background-size: cover;
+                background-position: fixed;
+                color: white;
+            }
+
+            header section {
+                margin: 0 auto;
+                max-width: 640px;
+            }
+
+            header img {
+                border-radius: 50%;
+                max-width: 150px;
+            }
+
+            h1 {
+                text-transform: uppercase;
+                margin: 1em 0;
+            }
+
+            h3 {
+                text-transform: uppercase;
+            }
+
+            h3,
+            h4 {
+                font-weight: bold;
+            }
+
+            main {
+                max-width: 1140px;
+            }
+
+            main section:not(:last-child) {
+                border-bottom: 1px solid #ccc;
+            }
+
+            .fab {
+                border: 1px solid white;
+                border-radius: 50%;
+                font-size: 1.5em;
+                width: 1.5em;
+                height: 1.5em;
+                line-height: 1.5em;
+                margin: 5px;
+                text-align: center;
+            }
+
+            a .fab {
+                color: white;
+            }
+
+            .course,
+            .skills {
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+            }
+
+            .course .title {
+                color: #509e98;
+                -ms-flex: 0 0 33.3%;
+                flex: 0 0 33.3%;
+                max-width: 33%;
+            }
+
+            .course .descrition {
+                -ms-flex: 0 0 66.6%;
+                flex: 0 0 66.6%;
+                max-width: 66.6%;
+            }
+
+            .course .descrition p {
+                padding-left: 1em;
+            }
+
+            .skills .column {
+                -ms-flex: 0 0 50%%;
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+
+            .skills .column ul,
+            ul.job-description {
+                list-style-type: none;
+            }
+
+            .skills .column ul>li:before {
+                content: "►";
+                padding-right: 0.5em;
+                color: #509e98;
+            }
+
+            .school,
+            .job-title {
+                text-transform: capitalize;
+            }
+
+            .school span,
+            .job-title span {
+                color: #889499;
+                text-decoration: underline;
+            }
+
+            ul.job-description li:before {
+                content: "✔";
+                padding-right: 0.5em;
+                color: #509e98;
+            }
+
+            footer {
+                padding: 1em 1.5em;
+                background: #A7B8BF;
+                color: white;
+                text-align: right;
+            }
+
+            @media only screen and (max-width: 768px) {
+                .course {
+                    display: block;
+                }
+
+                .course .title,
+                .course .descrition {
+                    max-width: 100%;
+                }
+            }
+
+            @media only screen and (max-width: 576px) {
+                .skills {
+                    display: block;
+                }
+
+                .skills .column {
+                    max-width: 100%;
+                }
+
+                footer {
+                    text-align: center;
+                }
+            }
+        </style>
+        <header>
+            <div>
+                <img src="https://raw.githubusercontent.com/ritaly/HTML-CSS-CV-demo/master/img/avatar.jpg" />
+            </div>
+            <h1>Ocat Verdigris</h1>
+            <section>
+                <p>Hello! I am Ocat Verdigris. I work as interface and front-end developer. I have passion for pixel
+                    perfect, minimal and easy to use interfaces. I'm focused, dedicated, hard-working and willing to
+                    learn in a changing and challenging environment.</p>
+                <a href="https://www.facebook.com/flynerdpl/" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.twitter.com/flynerdpl/" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://github.com/ritaly" target="_blank">
+                    <i class="fab fa-github-alt"></i>
+                </a>
+                <a href="https://www.instagram.com/flynerdpl/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ritalyczywek/" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </section>
+        </header>
+        <main>
+            <section>
+                <h3>Courses & Workshops</h3>
+                <article class='course'>
+                    <div class='title'>
+                        <h4>Udacity: Intro to HTML and CSS</h4>
+                    </div>
+                    <div class="descrition">
+                        <p>Build styled, well-structured websites. Learn how to use HTML5 standard to create websites.
+                            Understand CSS syntax, selectors, and units. Learn about code editors and a browser's
+                            Developer Tools.</p>
+                    </div>
+                </article>
+                <article class='course'>
+                    <div class='title'>
+                        <h4>Udemy: The Web Developer Bootcamp</h4>
+                    </div>
+                    <div class="descrition">
+                        <p>Learn how to create full-stack web applications from scratch using HTML, CSS, JavaScript,
+                            jQuery, VanillaJS, NodeJS, MongoDB.</p>
+                    </div>
+                </article>
+                <article class='course'>
+                    <div class='title'>
+                        <h4>EdX: Web Programming with JavaScript</h4>
+                    </div>
+                    <div class="descrition">
+                        <p>Learn how to create web apps and prototypes with JavaScript, represent and exchange data
+                            using JavaScript Object Notation (JSON), and how to access RESTful APIs on the web.</p>
+                    </div>
+                </article>
+                <article class='course'>
+                    <div class='title'>
+                        <h4>Django Girls: 2-Day Workshops</h4>
+                    </div>
+                    <div class="descrition">
+                        <p>Learn back-end development with simple blog application using Django framework.</p>
+                    </div>
+                </article>
+            </section>
+            <section>
+                <h3>Skills</h3>
+                <div class='skills'>
+                    <div class='column'>
+                        <h4>Good knowledge</h4>
+                        <ul>
+                            <li>HTML5</li>
+                            <li>CSS</li>
+                            <li>JavaScript ES5/6</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
+                    <div class='column'>
+                        <h4>Basic knowledge</h4>
+                        <ul>
+                            <li>jQuery</li>
+                            <li>NodeJS</li>
+                            <li>MongoDB</li>
+                            <li>Django</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Languages</h4>
+                        <p>🇵🇱 Polish - Native speaker</p>
+                        <p>🇬🇧 English - Proficient C1/C2</p>
+                        <p>🇫🇷 French - Advanced - C1</p>
+                        <p>🇪🇸 Spanish - Intermediate - B1/B2</p>
+                        <p>🇩🇪 German - Elementary / Communicative - A2</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3>Education</h3>
+                <article>
+                    <div class='school'>
+                        <span>2015-2018</span> <strong>Octocats tech academy</strong>
+                    </div>
+                    <div class="descrition">
+                        Bechelor Degree of Octorobotics
+                    </div>
+                </article>
+                <article>
+                    <div class='school'>
+                        <span>2012-2015</span> <strong>Underwater kittens high school</strong>
+                    </div>
+                    <div>
+                        Main subject: Cathemathics
+                    </div>
+                </article>
+            </section>
+            <section>
+                <h3>Experience</h3>
+                <article>
+                    <div class='job-title'>
+                        <span>03.2018 - 06.2018</span> <strong>Tentacles Company</strong><br> <strong>Position:</strong>
+                        Web developer Intern
+                    </div>
+                    <div>
+                        <p><strong>Tech stack:</strong> HTML5 / CSS / JavaScript / jQuery</p>
+                        <ul class="job-description">
+                            <li>Develop web application for Octopoda departments</li>
+                            <li>Implement UI (front-end site) based on received graphic design and requirements</li>
+                            <li>Co-operate with the back-end team </li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+        </main>
+        <footer>
+            <p>Created by: <a href="https://www.flynerd.pl/">@flynerd</a> / <a
+                    href="https://www.linkedin.com/in/ritalyczywek/">LinkedIn</a> / 2018 </p>
+        </footer>
+        <!-- Templating Ends -->
+    </div>
+    <script src="../lib/htmltopdf.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

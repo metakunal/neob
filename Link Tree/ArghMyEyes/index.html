@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+
+    <div id="editor-head" class="text-gray-600 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <div id="site-btn">
+                    <button class="logo" title="Download Code"><i class="fas fa-file-download"></i></button>
+                    <span class="ml-3 text-xl" style="cursor: pointer;">Download</span>
+                </div>
+            </a>
+            <div id="editor-nav" class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                <a class="mr-5 hover:text-gray-900">
+                    <button onclick="formatDoc('justifycenter');"><i title=" Align-center"
+                            class="fa fa-align-center"></i></button>
+                </a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('justifyfull');"><i title="Align-justify"
+                            class="fa fa-align-justify"></i></button></a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('justifyleft');"><i title="Align-left"
+                            class="fa fa-align-left"></i></button></a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('justifyright');"><i title="Align-right"
+                            class="fa fa-align-right"></i></button></a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('bold');"><i title="Bold"
+                            class="fa fa-bold"></i></button>
+                </a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('italic');"><i title="Italic"
+                            class="fa fa-italic"></i></button>
+                </a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('underline');"><i title="Underline"
+                            class="fa fa-underline"></i></button></a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('strikethrough');"><i
+                            title="StrikeThrough" class="fa fa-strikethrough"></i></button></a>
+
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('superscript');"><i
+                            class="fas fa-superscript" title="Superscript"></i></button></a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('subscript');"><i
+                            class="fas fa-subscript" title="Sub-Script"></i></button></a>
+                <a class="mr-5 hover:text-gray-900"><button
+                        onclick="var sLnk=prompt('Write the URL here','http:\/\/');if(sLnk&&sLnk!=''&&sLnk!='http://'){formatDoc('createlink',sLnk)}""><i title="
+                        Hyperlink" class="fas fa-link"></i></button>
+                </a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('unlink');"><i class="fa fa-unlink"
+                            title="Unlink"></i></i></button></a>
+                <a class="mr-5 hover:text-gray-900"><button onclick="formatDoc('removeFormat');"><i
+                            class="fas fa-remove-format" title="Remove Format"></i></i></button></a>
+
+                <a class="mr-5 hover:text-gray-900"> <select
+                        onchange="formatDoc('fontsize',this[this.selectedIndex].value);this.selectedIndex=0;">
+                        <option class="heading" selected>- size -</option>
+                        <option value="1">Very small</option>
+                        <option value="2">A bit small</option>
+                        <option value="3">Normal</option>
+                        <option value="4">Medium-large</option>
+                        <option value="5">Big</option>
+                        <option value="6">Very big</option>
+                        <option value="7">Maximum</option>
+                    </select></a>
+                <a class="mr-5 hover:text-gray-900"><select
+                        onchange="formatDoc('fontname',this[this.selectedIndex].value);this.selectedIndex=0;">
+                        <option class="heading" selected>- font -</option>
+                        <option style="font-family: Arial;">Arial</option>
+                        <option style="font-family: Arial Black;">Arial Black</option>
+                        <option style="font-family: Courier New;">Courier New</option>
+                        <option style="font-family: Verdana;">Verdana</option>
+                        <option style="font-family: Helvetica;">Helvetica</option>
+                        <option style="font-family: Tahoma;">Tahoma</option>
+                        <option style="font-family: Trebuchet MS;">Trebuchet MS</option>
+                        <option style="font-family: Georgia;">Georgia</option>
+                        <option style="font-family: Garamond;">Garamond</option>
+                        <option style="font-family: cursive;">cursive</option>
+                        <option style="font-family: Brush Script MT;">Brush Script MT</option>
+                        <option style="font-family: Brush Script Std;">Brush Script Std</option>
+                        <option style="font-family: Lucida Handwriting;">Lucida Handwriting</option>
+                        <option style="font-family: Papyrus;">Papyrus</option>
+                        <option style="font-family: Candara;">Candara</option>
+                        <option style="font-family: Geneva;">Geneva</option>
+                        <option style="font-family: Calibri;">Calibri</option>
+                        <option style="font-family: Cambria;">Cambria</option>
+                        <option style="font-family: Garamond;">Garamond</option>
+                        <option style="font-family: Perpetua;">Perpetua</option>
+                        <option style="font-family: Impact;">Impact</option>
+                        <option style="font-family: fantasy;">fantasy</option>
+                        <option style="font-family: Stencil Std;">Stencil Std</option>
+                        <option style="font-family: 'Times New Roman', Times, serif;">Times New Roman</option>
+                    </select></a>
+                <a class="mr-5 hover:text-gray-900"><input title="Text Color" type="color" name="" id=""
+                        onchange="formatDoc('forecolor',this.value);">
+                </a>
+                <!-- <a class="mr-5 hover:text-gray-900"><input title="Background Color" type="color" name=""
+                        id="bgcolor"></a> -->
+
+            </div>
+
+        </div>
+    </div>
+    <div id="code">
+        <!-- Templating Starts -->
+
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        <style>
+            @-webkit-keyframes argh-my-eyes {
+                0% {
+                    background-color: #302387;
+                }
+
+                25% {
+                    background-color: #FF3796;
+                }
+
+                50% {
+                    background-color: #C32BAD;
+                }
+
+                75% {
+                    background-color: #00FAAC;
+                }
+
+                100% {
+                    background-color: #FFFDAF;
+                }
+            }
+
+            @-moz-keyframes argh-my-eyes {
+                0% {
+                    background-color: #302387;
+                }
+
+                25% {
+                    background-color: #FF3796;
+                }
+
+                50% {
+                    background-color: #C32BAD;
+                }
+
+                75% {
+                    background-color: #00FAAC;
+                }
+
+                100% {
+                    background-color: #FFFDAF;
+                }
+            }
+
+            @keyframes argh-my-eyes {
+                0% {
+                    background-color: #302387;
+                }
+
+                25% {
+                    background-color: #FF3796;
+                }
+
+                50% {
+                    background-color: #C32BAD;
+                }
+
+                75% {
+                    background-color: #00FAAC;
+                }
+
+                100% {
+                    background-color: #FFFDAF;
+                }
+            }
+
+            @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                animation: argh-my-eyes .7s infinite;
+                -webkit-animation: argh-my-eyes 1s infinite;
+                -moz-animation: argh-my-eyes 1s infinite;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                font-family: 'Quicksand', sans-serif;
+                margin: 0;
+                min-height: 100vh;
+                overflow: hidden;
+                padding: 20px 0;
+                width: 100%;
+            }
+
+            .author {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .author .author__pic {
+                border-radius: 50%;
+                object-fit: cover;
+                overflow: hidden;
+                width: 120px;
+                height: 120px;
+            }
+
+            .author .author__username {
+                color: #ffffff;
+                margin-top: 20px;
+                text-decoration: none;
+            }
+
+            .links {
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 20px;
+            }
+
+            .links .links__item {
+                align-items: center;
+                background-color: #ffffff;
+                border-radius: 18px;
+                color: #302387;
+                display: flex;
+                flex-direction: row;
+                height: 42px;
+                max-width: 100%;
+                padding: 5px;
+                text-decoration: none;
+                width: 280px;
+            }
+
+            .links .links__item .links__icon {
+                background-color: #302387;
+                border-radius: 50%;
+                height: 32px;
+                width: 32px;
+                display: flex;
+                align-items: center;
+            }
+
+            .links .links__item .links__icon i {
+                color: #ffffff;
+                font-size: 24px;
+                margin: 0 auto;
+            }
+
+            .links .links__item .links__label {
+                margin-left: 12px;
+            }
+
+            a {
+                text-decoration: none;
+            }
+        </style>
+        <div class="author">
+            <img src="https://avatars.githubusercontent.com/u/12593832?v=4" alt="Eko Triono"
+                class="author__pic profile-photo" />
+            <a href="https://github.com/ekotriono" class="author__username" target="_blank"
+                contenteditable="true">@ekotriono</a>
+        </div>
+        <div class="links" contenteditable="true">
+
+            <li class="links__item"> <span class="links__label">🎉Facebook</span></li>
+            <li class="links__item"> <span class="links__label">🧨Watch my Zoom Webinar.</span></li>
+            <li class="links__item"> <span class="links__label">👨‍🎓Download my resume</span></li>
+            <li class="links__item"> <span class="links__label">🎉Something else</span></li>
+        </div>
+
+        <!-- Templating Ends -->
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
