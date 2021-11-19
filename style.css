@@ -257,7 +257,7 @@ h1::before {
 
 h1 {
     color: #fff;
-    font-size: 8rem;
+    font-size: 8vw;
     text-transform: uppercase;
     position: relative;
     font-family: "Fredoka One", cursive;
