@@ -3992,6 +3992,22 @@
                 <h2 contenteditable="true">Connect with me 🤝🏻</h2>
                 <hr>
             </div>
+            <div>
+                <center> <strong>Visitor Count : <p id="count"></p></strong></center>
+            </div>
+            <script>
+                const countEl = document.getElementById('count');
+
+                updateVisitCount();
+
+                function updateVisitCount() {
+                    fetch('https://api.countapi.xyz/update/minimalist/87c03f67-399b-4164-bc9a-26c1e3b8a856/?amount=1')
+                        .then(res => res.json())
+                        .then(res => {
+                            countEl.innerHTML = res.value;
+                        })
+                }
+            </script>
 
             <!-- <div class="work-together">
                 <div class="container">

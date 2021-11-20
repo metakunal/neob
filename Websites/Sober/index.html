@@ -476,6 +476,22 @@
                 <li class="list-item-inline"> Github🚀 | </li>
                 <li class="list-item-inline"> Twitter📱 </li>
             </ul>
+            <div>
+                <center> <strong>Visitor Count : <p id="count"></p></strong></center>
+            </div>
+            <script>
+                const countEl = document.getElementById('count');
+
+                updateVisitCount();
+
+                function updateVisitCount() {
+                    fetch('https://api.countapi.xyz/update/sober/c5123228-fbed-4d58-a6b1-18ca10a9708a/?amount=1')
+                        .then(res => res.json())
+                        .then(res => {
+                            countEl.innerHTML = res.value;
+                        })
+                }
+            </script>
         </footer>
 
         <!-- Templating Ends -->

@@ -34,3 +34,4 @@ pf.addEventListener("click", function () {
 //     // document.querySelector(".linkContainer").style.backgroundColor = bgColor.value;
 //     document.execCommand("forecolor", false, bgColor.value)
 // })
+

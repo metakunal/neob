@@ -271,9 +271,22 @@
                 <h3 contenteditable="true">If you want to collaborate🤝 with me, feel free to ping me up on Twitter.
                 </h3>
             </div>
-
+            <strong>Visitor Count : <p id="count"></p></strong>
         </div>
+        <script>
+            //Visitor Count
+            const countEl = document.getElementById('count');
 
+            updateVisitCount();
+
+            function updateVisitCount() {
+                fetch('https://api.countapi.xyz/update/folio1/90c5da31-4b44-46fc-b118-8f0f68748e9d/?amount=1')
+                    .then(res => res.json())
+                    .then(res => {
+                        countEl.innerHTML = res.value;
+                    })
+            }
+        </script>
         <!-- Templating Ends -->
     </div>
     <script src="script.js"></script>
