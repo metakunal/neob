@@ -9,15 +9,13 @@ Team Members : Kunal Yadav (20205092) <a href="https://github.com/metakunal" tar
   <li>HTML</li>
     <li>CSS</li>
     <li>Javascript</li>  
-    <li>Node Js</li>
-    <li>Express JS</li>
+    <li><a href="https://countapi.xyz/">Count API</a></li>
  </ul> 
  
  <h2>Proposed Features⭐</h2>
 <ul>
-  <li>Take user data in simple file formats/forms.</li>
-<li>MS word type interactive feature for editing/placing/Font change of objects.</li>
-<li>Minimum 3 themes for portfolio.</li>
+<li>MS word type interactive feature for editing/Font change of objects.</li>
+<li>5 themes for portfolio.</li>
 <li>Responsive Design.</li>
 <li>Site Unique Visitors Count.</li>
 <li>Preloading Animation (Self Made).</li>
@@ -26,9 +24,9 @@ Team Members : Kunal Yadav (20205092) <a href="https://github.com/metakunal" tar
  
   <h2>Our Innovation⚙</h2>
 <ul>
-  <li>Will make a resume📄 builder also.</li>
-<li>Will also make a link aggregator like link tree🌲</li>
+<li>Made link aggregator like link tree🌲</li>
   <li>Implemented a Readme writer🖋 also, that converts plain text into html</li>
  </ul>
  
+ <h4><a href="https://youtu.be/I5jhnFfmZXI">How to use ↗</a></h4>
  
